@@ -1,4 +1,5 @@
-**movingpeople Python Package**
+movingpeople Python Package
+=====
 
 movingpeople is a Python package for generating and visualising synthetic geospatial movement data within a network. 
 

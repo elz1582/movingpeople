@@ -7,7 +7,7 @@ import random
 import pandas as pd
 
 import unittest
-from ..src.movingpeople import (
+from ..src import (
     generate_route,
     generate_routes,
     visualise_route,
@@ -21,8 +21,19 @@ G = ox.graph.graph_from_place(query, network_type="walk", simplify=True)
 Gp = ox.project_graph(G, to_crs="4326")
 
 
-def test_():
-    # To make a single randomised route
-    single_route = generate_route(
-        Gp, "2015-02-26 21:42:53", route_location="random", walk_speed=1.4
-    )
+class TestUniqueRoutes(unittest.TestCase):
+    def test_(self):
+        # To make two randomised routes
+        two_routes = generate_routes(
+                                    Gp,
+                                    time_from="2015-02-26 21:42:53",
+                                    time_until=None,
+                                    time_strategy="fixed",
+                                    route_strategy="many-many",
+                                    origin_destination_coords=None,
+                                    total_routes=2,
+                                    walk_speed=1.4,
+                                    frequency="1s",
+                                    )
+        # Unique number of route ids should equal 2
+        self.assertEqual(two_routes['id'].nunique(), 2, "incorrect area")

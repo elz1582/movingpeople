@@ -103,7 +103,7 @@ def generate_routes(
     origin_destination_coords=None,
     total_routes=1,
     walk_speed=1.4,
-    frequency="30s",
+    frequency="1s",
 ):
     """
     Creates a DataFrame of evenly spaced points from an randomised origins to destinations in a graph network.

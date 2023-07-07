@@ -36,4 +36,4 @@ class TestUniqueRoutes(unittest.TestCase):
                                     frequency="1s",
                                     )
         # Unique number of route ids should equal 2
-        self.assertEqual(two_routes['id'].nunique(), 2, "incorrect area")
+        self.assertEqual(two_routes['id'].nunique(), 2, "incorrect number of unique ids")

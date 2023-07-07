@@ -1,3 +1,3 @@
-# Python Package
+# movingpeople Python Package
 
 Placeholder text.

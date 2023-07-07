@@ -21,7 +21,12 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "bson >= 0.5.10"
+        "osmnx>=1.5.0",
+        "shapely>=2.0.1",
+        "geopandas>=0.13.2",
+        "numpy>=1.25.0",
+        "keplergl>=0.3.2",
+        "pandas>=2.0.3"
         ],
     extras_require={
         "dev": [

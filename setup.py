@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/elz1582/movingpeople",
     author="Elliot H",
-    author_email="Elliot H",
+    author_email="elz1582@gmail.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",

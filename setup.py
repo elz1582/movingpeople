@@ -4,16 +4,16 @@ with open("app/README.md", "r") as f:
     long_description = f.read()
 
 setup(
-    name="example_app",
+    name="movingpeople",
     version="0.0.10",
-    description="A basic tempalte",
-    package_dir={"": "app"},
-    packages=find_packages(where="app"),
+    description="Generate synthetic timesstamped routes on a graph network.",
+    package_dir={"": "movingpeople"},
+    packages=find_packages(where="movingpeople"),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/",
-    author="Elliot",
-    author_email="Elliot",
+    url="https://github.com/elz1582/movingpeople",
+    author="Elliot H",
+    author_email="Elliot H",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",

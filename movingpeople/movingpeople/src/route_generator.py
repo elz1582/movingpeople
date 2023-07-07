@@ -74,7 +74,7 @@ def generate_route(Gp, start_time, route_location='random', origin_destination_c
 
     return gdf
 
-def generate_random_routes(Gp, total_routes, time_from, time_until, walk_speed = 1.4, frequency = '30s'):
+def generate_random_routes(Gp, time_from, time_until, route_location='random', origin_destination_coords=None, total_routes = 1, walk_speed = 1.4, frequency = '30s'):
     """
     Creates a DataFrame of evenly spaced points from an randomised origins to destinations in a graph network.
 
@@ -111,7 +111,7 @@ def generate_random_routes(Gp, total_routes, time_from, time_until, walk_speed =
         random_date = time_from + (time_until - time_from) * random.random()
 
         # Use the generate_route function to output a route
-        route = generate_route(Gp, random_date, route_location='random', origin_destination_coords=None, walk_speed=walk_speed, frequency=frequency)
+        route = generate_route(Gp, random_date, route_location, origin_destination_coords, walk_speed, frequency)
         # Add a route ID
         route['id'] = i + 1
         # Append back to the list

@@ -1,8 +1,17 @@
-movingpeople Python Package
-=====
+.. include:: ../README.md
 
-movingpeople is a Python package for generating and visualising synthetic geospatial movement data within a network. 
+Welcome to movingpeople's documentation!
+===================================
+
+**movingpeople** movingpeople is a Python package for generating and visualising synthetic geospatial movement data within a network. 
 
 Synthetic data consists of one or more routes, with optionality for defining combinations of fixed and randomised origin and destination locations, using OSMNX. Each route is defined by a unique ID and is composed of timestamped Shapely 'Point' geometries.
 
 Visualisation of the resulting synthetic data uses keplerGL.
+
+Check out the :doc:`usage` section for further information, including
+how to :ref:`installation` the project.
+
+.. note::
+
+   This project is under active development.

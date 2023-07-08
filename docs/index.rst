@@ -13,3 +13,10 @@ how to :ref:`installation` the project.
 .. note::
 
    This project is under active development.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   index
+   usage
+   installation

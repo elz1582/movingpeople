@@ -21,7 +21,7 @@ To install **movingpeople**, you can use pip, the Python package installer. Open
 
     pip install movingpeople
 
-Usage
+A quick example
 -----
 
 Here's a basic example to get you started with **movingpeople**:
@@ -70,8 +70,6 @@ how to :ref:`installation` the project.
    This project is under active development.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-   index
+   Home <self>
    usage
-   installation
+   examples

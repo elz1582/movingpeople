@@ -24,7 +24,7 @@ To install **movingpeople**, you can use pip, the Python package installer. Open
 Usage
 -----
 
-Here's a basic example to get you started with **movingpeople**::
+Here's a basic example to get you started with **movingpeople**:
 
 .. code-block:: bash
 

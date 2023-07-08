@@ -1,21 +1,21 @@
 movingpeople
 ============
 
-:movingpeople: is a Python package that allows you to generate synthetic data of travel routes in a graph network. It provides a convenient and efficient way to create datasets of travel routes, which are time-stamped based on travel speed. Whether you are working on transportation analysis, urban planning, or simulating human movement patterns, :movingpeople: is a powerful tool to generate realistic and customizable travel data.
+**movingpeople** is a Python package that allows you to generate synthetic data of travel routes in a graph network. It provides a convenient and efficient way to create datasets of travel routes, which are time-stamped based on travel speed. Whether you are working on transportation analysis, urban planning, or simulating human movement patterns, :movingpeople: is a powerful tool to generate realistic and customizable travel data.
 
 Key Features
 ------------
 
-- Synthetic Data Generation: With :movingpeople:, you can generate synthetic travel data by simulating movement on the graph network. The package incorporates various parameters such as travel speed, time intervals, and start/end points to create diverse and customizable travel routes.
+- Synthetic Data Generation: With **movingpeople**, you can generate synthetic travel data by simulating movement on the graph network. The package incorporates various parameters such as travel speed, time intervals, and start/end points to create diverse and customizable travel routes.
 
 - Timestamped Routes: Each generated travel route is timestamped according to the travel speed. This enables you to analyze temporal aspects of movement, such as traffic patterns, congestion, or time-based simulations.
 
-- Customizable Parameters: :movingpeople: provides a range of parameters that can be customized to fit your specific use case. You can control aspects such as the number of routes to generate, the distribution of travel speeds, the duration of routes, and more.
+- Customizable Parameters: **movingpeople** provides a range of parameters that can be customized to fit your specific use case. You can control aspects such as the number of routes to generate, the distribution of travel speeds, the duration of routes, and more.
 
 Installation
 ------------
 
-To install :movingpeople:, you can use pip, the Python package installer. Open a terminal or command prompt and run the following command:
+To install **movingpeople**, you can use pip, the Python package installer. Open a terminal or command prompt and run the following command:
 
 .. code-block:: bash
 
@@ -24,9 +24,9 @@ To install :movingpeople:, you can use pip, the Python package installer. Open a
 Usage
 -----
 
-Here's a basic example to get you started with :movingpeople::
+Here's a basic example to get you started with **movingpeople**::
 
-.. code-block:: python
+.. code-block:: bash
 
     from movingpeople import visualise_route, generate_routes
     import osmnx as ox
@@ -59,7 +59,7 @@ In the example above, we first create a ``Graph`` object to define the transport
 Conclusion
 ----------
 
-:movingpeople: is a versatile Python package for generating synthetic travel route data on graph networks. It offers a range of features and customizable parameters to create realistic and timestamped routes. Whether you are conducting transportation analysis, urban planning, or simulating human movement patterns, :movingpeople: can help you generate valuable datasets for research and analysis. Start using :movingpeople: today and unlock insights into the dynamics of movement in various contexts.
+**movingpeople** is a versatile Python package for generating synthetic travel route data on graph networks. It offers a range of features and customizable parameters to create realistic and timestamped routes. Whether you are conducting transportation analysis, urban planning, or simulating human movement patterns, :movingpeople: can help you generate valuable datasets for research and analysis. Start using :movingpeople: today and unlock insights into the dynamics of movement in various contexts.
 
 
 Check out the :doc:`usage` section for further information, including

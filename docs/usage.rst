@@ -79,3 +79,7 @@ To use movingpeople, first install it using pip:
       KeplerGL visualisation
 
 
+.. toctree::
+   Home 
+   usage <self>
+   examples

@@ -80,6 +80,4 @@ To use movingpeople, first install it using pip:
 
 
 .. toctree::
-   Home 
-   usage <self>
-   examples
+   Home

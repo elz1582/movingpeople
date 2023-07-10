@@ -11,7 +11,7 @@ setup(
     packages=find_packages(where="movingpeople"),
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/elz1582/movingpeople",
+    url="https://movingpeople.readthedocs.io/en/latest/index.html",
     author="Elliot H",
     author_email="elz1582@gmail.com",
     license="MIT",

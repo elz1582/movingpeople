@@ -34,8 +34,6 @@ Here's a basic example to get you started with **movingpeople**:
 In the example above, we first create a ``Graph`` object to define the transportation network. We then generate two routes which have the same start time however randomised origins and destinations.
 
 
-Installation
-------------
 
 .. code-block:: bash
    
@@ -52,7 +50,3 @@ Installation
                   )
 To make a single route with a fixed origin and randomised destination and randomised start time between a range.
 
-.. toctree::
-   Home 
-   usage
-   examples <self>

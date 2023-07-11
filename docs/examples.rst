@@ -68,8 +68,13 @@ Here are the results when visualised using keplerGL:
   :width: 800
 
 There are many more combinations to experiment with, but to summarise:
+
 - Fixed and/or randomised origins
+
 - Fixed and/or randomised destinations
+
 - n number of routes
+
 - Fixed or randomised route start times
+
 - Flexible walking speed and point frequency along routes

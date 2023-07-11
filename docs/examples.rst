@@ -30,7 +30,7 @@ Here's a basic example to get you started with **movingpeople**:
                   )
 
     # Visualise the results in keplerGL
-    visualise_route(two_routes, 500)
+    visualise_route(data, 500)
 
 In the example above, we first create a ``Graph`` object to define the transportation network. We then generate five routes which have the same start time, randomised origins and a fixed destinations.
 
@@ -38,6 +38,8 @@ Here are the results when visualised using keplerGL:
 
 .. image:: ./images/many_one_example.png
   :width: 800
+
+
 
 "many-many" route creation
 ----
@@ -55,9 +57,19 @@ Here are the results when visualised using keplerGL:
                   walk_speed=1.4,
                   frequency="1s",
                   )
-To make twelve randomised routes, with each route having a randomised start time between a range.
+       # Visualise the results in keplerGL
+       visualise_route(data, 500)
+
+This example makes twelve randomised routes, with each route having a randomised start time between a range.
 
 Here are the results when visualised using keplerGL:
 
 .. image:: ./images/many_many_example.png
   :width: 800
+
+There are many more combinations to experiment with, but to summarise:
+- Fixed and/or randomised origins
+- Fixed and/or randomised destinations
+- n number of routes
+- Fixed or randomised route start times
+- Flexible walking speed and point frequency along routes

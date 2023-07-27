@@ -246,3 +246,79 @@ def generate_routes(
     df = pd.concat(route_dfs, ignore_index=True)
 
     return df
+
+
+def clip_routes_to_polygon(routes, polygon):
+    """
+    Creates a DataFrame of routes that are clipped by a single polygon.
+
+    Parameters:
+            routes : GeoDataFrame
+                DataFrame containing routes locations. See 'generate_routes' for information.
+            polygon : GeoDataFrame
+                Contains polygon 'geometry' column
+
+    Returns:
+            route_subset : GeoDataFrame
+                A subset of routes that are clipped inside the input polygon.
+    """
+    
+    # Check if polygon is a Shapely Polygon
+    assert polygon.geom_type == 'Polygon', "Input polygon is not a Shapely 'Polygon'."
+
+    # Check if the geometry column exists in the polygon GeoDataFrame
+    assert 'geometry' in area.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
+
+    # Check if the geometry column exists in the routes GeoDataFrame
+    assert 'geometry' in routes.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
+
+    # Check if the geometries in the routes GeoDataFrame
+    assert routes.geom_type == 'Point', "Input polygon is not a Shapely 'Polygon'."
+
+    # Subsetting routes to within the buffer polygon - FUNCTION
+    route_subset = routes.loc[routes.within(polygon.loc[0, 'geometry'])]
+    return route_subset
+
+
+def get_entry_exit_times(clipped_routes):
+
+    """
+    Gets the start and end times of unique routes.
+
+    Parameters:
+            clipped_routes : GeoDataFrame
+                DataFrame containing routes. Ideally used after clip_routes_to_polygon.
+
+    Returns:
+            times : DataFrame
+                Start and end times for each unique route.
+    """
+
+    # Check if the id column exists in clipped_routes
+    assert 'id' in clipped_routes.columns, "No 'id' columns found."
+
+    # Converting ID to id if found
+    if 'ID' in clipped_routes.columns:
+        print('The column ID was found, but will be converted to lower case.')
+        clipped_routes.rename(
+            columns = {'ID':'id'},
+            inplace = True
+            )
+    else:
+        continue
+
+    # Check if the id column exists in clipped_routes
+    assert 'time' in clipped_routes.columns, "No 'time' columns found."
+
+    # Checking time column is a datetime type
+    clipped_routes['time'].dtype == '<M8[ns]'
+
+    # Calculating the entry and exit times of each route within the subset of routes - FUNCTION
+    timein = clipped_routes.groupby(['id']).first()
+    timeout = clipped_routes.groupby(['id']).last()
+
+    # Join the entry and exit times together for each route id
+    times = timein.join(timeout, lsuffix='_in', rsuffix='_out')[['time_in', 'time_out']]
+    times['duration'] =  times['time_out'] - times['time_in']
+
+    return times

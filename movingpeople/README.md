@@ -51,9 +51,7 @@ two_routes = generate_routes(
 visualise_route(two_routes, 500)
 ```
 
-In the example above, we first create a ``Graph`` object to define the transportation network. We then generate two routes which have the same start time however randomised origins and destinations. Heres the output visualised in Kepler.GL using the ``visualise_routes`` function:
-
-![Alt text](movingpeople/images/many_many_example.png "Many-many example route generation.")
+In the example above, we first create a ``Graph`` object to define the transportation network. We then generate two routes which have the same start time however randomised origins and destinations.
 
 ## Conclusion
 

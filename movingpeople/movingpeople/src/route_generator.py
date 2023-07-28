@@ -297,16 +297,6 @@ def get_entry_exit_times(clipped_routes):
     # Check if the id column exists in clipped_routes
     assert 'id' in clipped_routes.columns, "No 'id' columns found."
 
-    # Converting ID to id if found
-    if 'ID' in clipped_routes.columns:
-        print('The column ID was found, but will be converted to lower case.')
-        clipped_routes.rename(
-            columns = {'ID':'id'},
-            inplace = True
-            )
-    else:
-        continue
-
     # Check if the id column exists in clipped_routes
     assert 'time' in clipped_routes.columns, "No 'time' columns found."
 

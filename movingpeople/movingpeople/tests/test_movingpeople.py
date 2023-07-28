@@ -7,11 +7,10 @@ import random
 import pandas as pd
 
 import unittest
-from ..src import (
-    generate_route,
-    generate_routes,
-    visualise_route,
-)
+
+
+from ..src.route_generator import *
+
 
 # Search query for a geographic area
 query = "City of Westminster"

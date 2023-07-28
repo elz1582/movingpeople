@@ -79,5 +79,38 @@ To use movingpeople, first install it using pip:
       KeplerGL visualisation
 
 
+.. function:: clip_routes_to_polygon(routes, polygon)
+
+    Creates a DataFrame of routes that are clipped by a single polygon.
+
+    :param routes: GeoDataFrame
+        DataFrame containing route locations. See :func:`generate_routes` for information.
+    :param polygon: GeoDataFrame
+        Contains a 'geometry' column representing the clipping polygon.
+
+    :return: GeoDataFrame
+        A subset of routes that are clipped inside the input polygon.
+
+    :raises AssertionError:
+        If the input polygon is not a Shapely 'Polygon'.
+        If the polygon GeoDataFrame doesn't have a column named 'geometry'.
+        If the input routes GeoDataFrame doesn't have a 'geometry' column with Point geometries.
+
+
+.. function:: get_entry_exit_times(clipped_routes)
+
+    Gets the start and end times of unique routes.
+
+    :param clipped_routes: GeoDataFrame
+        DataFrame containing routes. Ideally used after :func:`clip_routes_to_polygon`.
+
+    :return: DataFrame
+        Start and end times for each unique route, along with their duration.
+
+    :raises AssertionError:
+        If the 'id' column is not found in the input clipped_routes.
+        If the 'time' column is not found in the input clipped_routes.
+        If the 'time' column in clipped_routes is not of datetime type.
+
 .. toctree::
    Home

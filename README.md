@@ -47,8 +47,6 @@ two_routes = generate_routes(
                             frequency="1s",
                             )
 
-# Visualise the results in keplerGL
-visualise_route(two_routes, 500)
 ```
 
 In the example above, we first create a ``Graph`` object to define the transportation network. We then generate two routes which have the same start time however randomised origins and destinations.

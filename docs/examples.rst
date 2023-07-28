@@ -67,6 +67,32 @@ Here are the results when visualised using keplerGL:
 .. image:: ./images/many_many_example.png
   :width: 800
 
+
+Clipping routes within a single polygon
+----
+.. code-block:: bash
+      # Creating a Point geometry and a buffer polygon of 1500 meters
+      buffer = Point(-0.152588, 51.512019)
+      area = gpd.GeoDataFrame(index=[0], crs='epsg:4326', geometry=[buffer])
+      area = area.to_crs(crs=3857) 
+      area['geometry'] = area['geometry'].buffer(1500)
+
+      # Using the existing routes GeoDataFrame and the created polygon
+      clipped_routes = clip_routes_to_polygon(routes, area)
+
+To use "clip_routes_to_polygon" it is first required to have a single polygon, that will be used to clip the pre-created routes.
+The resulting DataFrame will contain only the sections of routes that are within the polygon.
+
+Calculating the entry-exit times of clipped routes
+----
+.. code-block:: bash
+      # Calculate the entry-exit times for each unique route
+      entry_exit = get_entry_exit_times(clipped_routes)
+
+This will produce a DataFrame showing, for each unique route, the start and end time.
+This is best used for routes that have already been clipped using "clip_routes_to_polygon".
+
+
 There are many more combinations to experiment with, but to summarise:
 
 - Fixed and/or randomised origins

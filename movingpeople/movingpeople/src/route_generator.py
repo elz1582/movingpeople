@@ -264,13 +264,13 @@ def clip_routes_to_polygon(routes, polygon):
     """
     
     # Check if polygon is a Shapely Polygon
-    assert polygon.geom_type == 'Polygon', "Input polygon is not a Shapely 'Polygon'."
+    assert (polygon.geom_type == 'Polygon').all(), "Input polygon is not a Shapely 'Polygon'."
 
     # Check if the geometry column exists in the polygon GeoDataFrame
     assert 'geometry' in area.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
 
     # Check if the geometry column exists in the routes GeoDataFrame
-    assert 'geometry' in routes.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
+    assert (routes.geom_type == 'Point').all(), "Input polygon is not a Shapely 'Polygon'."
 
     # Check if the geometries in the routes GeoDataFrame
     assert routes.geom_type == 'Point', "Input polygon is not a Shapely 'Polygon'."

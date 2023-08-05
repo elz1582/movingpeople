@@ -5,7 +5,7 @@ with open("movingpeople/README.md", "r") as f:
 
 setup(
     name="movingpeople",
-    version="0.0.11",
+    version="0.0.20",
     description="Generate synthetic timesstamped routes on a graph network.",
     package_dir={"": "movingpeople"},
     packages=find_packages(where="movingpeople"),

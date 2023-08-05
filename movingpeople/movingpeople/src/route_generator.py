@@ -264,20 +264,24 @@ def clip_routes_to_polygon(routes, polygon):
     """
     
     # Check if polygon is a Shapely Polygon
-    assert (polygon.geom_type == 'Polygon').all(), "Input polygon is not a Shapely 'Polygon'."
+    assert (polygon.geom_type == 'Polygon').all(), "Input polygon(s) is not a Shapely 'Polygon'."
 
     # Check if the geometry column exists in the polygon GeoDataFrame
-    assert 'geometry' in area.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
+    assert 'geometry' in polygon.columns, "The polygon GeoDataFrame doesnt have a column named 'geometry'."
 
     # Check if the geometry column exists in the routes GeoDataFrame
     assert (routes.geom_type == 'Point').all(), "Input polygon is not a Shapely 'Polygon'."
 
     # Check if the geometries in the routes GeoDataFrame
-    assert routes.geom_type == 'Point', "Input polygon is not a Shapely 'Polygon'."
+    assert (routes.geom_type == 'Point').all(), "Input polygon is not a Shapely 'Polygon'."
 
     # Subsetting routes to within the buffer polygon - FUNCTION
-    route_subset = routes.loc[routes.within(polygon.loc[0, 'geometry'])]
-    return route_subset
+    output_df = pd.DataFrame()
+    for polygon_index in range(polygon.shape[0]):
+        route_subset = routes.loc[routes.within(polygon.loc[polygon_index, 'geometry'])]
+        route_subset['polygon_index'] = polygon_index
+        output_df = pd.concat([output_df, route_subset], axis = 0)
+    return output_df
 
 
 def get_entry_exit_times(clipped_routes):
@@ -287,7 +291,7 @@ def get_entry_exit_times(clipped_routes):
 
     Parameters:
             clipped_routes : GeoDataFrame
-                DataFrame containing routes. Ideally used after clip_routes_to_polygon.
+                DataFrame containing routes. Used after clip_routes_to_polygon.
 
     Returns:
             times : DataFrame
@@ -297,18 +301,23 @@ def get_entry_exit_times(clipped_routes):
     # Check if the id column exists in clipped_routes
     assert 'id' in clipped_routes.columns, "No 'id' columns found."
 
+    # Check if the polygon index column exists in clipped_routes
+    assert 'polygon_index' in clipped_routes.columns, "No 'polygon_index' columns found."
+
     # Check if the id column exists in clipped_routes
     assert 'time' in clipped_routes.columns, "No 'time' columns found."
 
     # Checking time column is a datetime type
-    clipped_routes['time'].dtype == '<M8[ns]'
+    assert clipped_routes['time'].dtype == '<M8[ns]', "'time' column is not a <M8[ns] type."
 
     # Calculating the entry and exit times of each route within the subset of routes - FUNCTION
-    timein = clipped_routes.groupby(['id']).first()
-    timeout = clipped_routes.groupby(['id']).last()
+    timein = clipped_routes.groupby(['id','polygon_index']).first()
+    timeout = clipped_routes.groupby(['id','polygon_index']).last()
 
     # Join the entry and exit times together for each route id
     times = timein.join(timeout, lsuffix='_in', rsuffix='_out')[['time_in', 'time_out']]
     times['duration'] =  times['time_out'] - times['time_in']
 
+    # Reset the multiindex to create extra columns
+    times = times.reset_index()
     return times

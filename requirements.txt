@@ -34,7 +34,7 @@ geopandas
 greenlet>=2.0.2
 idna>=3.4
 importlib-metadata>=6.7.0
-ipykernel>=6.24.0
+ipykernel
 ipython>=8.14.0
 ipython-genutils>=0.2.0
 ipywidgets>=7.7.5

@@ -34,5 +34,5 @@ setup(
             "twine>=4.0.2"
             ],
     },
-    python_requires=">=3.10",
+    python_requires=">=3.8",
 )

@@ -26,7 +26,7 @@ setup(
         "geopandas>=0.13.2",
         "numpy>=1.25.0",
         "keplergl>=0.3.2",
-        "pandas>=2.0.3"
+        "pandas"
         ],
     extras_require={
         "dev": [

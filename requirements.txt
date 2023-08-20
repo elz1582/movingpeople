@@ -28,7 +28,7 @@ executing==1.2.0
 fastjsonschema==2.17.1
 Fiona==1.9.4.post1
 folium==0.14.0
-fonttools==4.40.0
+fonttools
 fqdn==1.5.1
 geopandas==0.13.2
 greenlet==2.0.2
